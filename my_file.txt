@@ -1,0 +1,4 @@
+this is the first line
+ilove myselfi am doing nursingi am now in year fouri enjoy codingThis is an appended line.
+Appending lines is easy with Python.
+You can modify files dynamically!
