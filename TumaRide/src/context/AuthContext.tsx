@@ -50,16 +50,43 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoading(true);
     try {
       // Mock login - in a real app, this would call an API
-      const mockUser: User = {
-        id: 'user123',
-        name: 'John Doe',
-        email,
-        phone: '+254712345678',
-        role: 'sender',
-        isVerified: true,
-        rating: 4.5,
-        createdAt: new Date(),
-      };
+      let mockUser: User;
+      
+      if (email === 'sender@demo.com' && password === 'demo123') {
+        mockUser = {
+          id: 'sender123',
+          name: 'Jane Sender',
+          email,
+          phone: '+254712345678',
+          role: 'sender',
+          isVerified: true,
+          rating: 4.5,
+          createdAt: new Date(),
+        };
+      } else if (email === 'traveler@demo.com' && password === 'demo123') {
+        mockUser = {
+          id: 'traveler123',
+          name: 'John Traveler',
+          email,
+          phone: '+254798765432',
+          role: 'traveler',
+          isVerified: true,
+          rating: 4.8,
+          createdAt: new Date(),
+        };
+      } else {
+        // Default user for other login attempts
+        mockUser = {
+          id: 'user123',
+          name: 'Demo User',
+          email,
+          phone: '+254712345678',
+          role: 'sender',
+          isVerified: true,
+          rating: 4.5,
+          createdAt: new Date(),
+        };
+      }
       
       await AsyncStorage.setItem('user', JSON.stringify(mockUser));
       setUser(mockUser);

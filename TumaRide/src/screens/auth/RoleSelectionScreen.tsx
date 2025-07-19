@@ -74,7 +74,10 @@ const RoleSelectionScreen = () => {
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
-          <Ionicons name="car" size={50} color={colors.primary} />
+          <View style={styles.logoSymbol}>
+            <View style={styles.logoArrow} />
+            <Text style={styles.logoText}>T</Text>
+          </View>
           <Text style={styles.appName}>TumaRide</Text>
           <Text style={styles.subtitle}>How would you like to use TumaRide?</Text>
         </View>
@@ -179,6 +182,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: spacing.xl,
     marginBottom: spacing.xl,
+  },
+  logoSymbol: {
+    width: 70,
+    height: 70,
+    backgroundColor: colors.white,
+    borderRadius: borderRadius.xl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.md,
+    position: 'relative',
+    borderWidth: 2,
+    borderColor: colors.primary,
+  },
+  logoArrow: {
+    position: 'absolute',
+    width: 42,
+    height: 5,
+    backgroundColor: colors.primary,
+    borderRadius: 3,
+    top: 24,
+    left: 14,
+    transform: [{ skewY: '15deg' }],
+  },
+  logoText: {
+    fontSize: fontSize.xl,
+    fontWeight: fontWeight.bold,
+    color: colors.primary,
   },
   appName: {
     fontSize: fontSize['2xl'],

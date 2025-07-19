@@ -17,7 +17,7 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Card } from '../../components/Card';
 import { useAuth } from '../../context/AuthContext';
-import { colors, fontSize, fontWeight, spacing } from '../../utils/theme';
+import { colors, fontSize, fontWeight, spacing, borderRadius } from '../../utils/theme';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
@@ -57,9 +57,12 @@ const LoginScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Header */}
         <View style={styles.header}>
-          <Ionicons name="car" size={60} color={colors.primary} />
+          <View style={styles.logoSymbol}>
+            <View style={styles.logoArrow} />
+            <Text style={styles.logoText}>T</Text>
+          </View>
           <Text style={styles.appName}>TumaRide</Text>
-          <Text style={styles.welcome}>Welcome back!</Text>
+          <Text style={styles.welcome}>Value at Every Stop</Text>
         </View>
 
         {/* Login Form */}
@@ -151,6 +154,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: spacing.xl,
     marginBottom: spacing.xl,
+  },
+  logoSymbol: {
+    width: 80,
+    height: 80,
+    backgroundColor: colors.white,
+    borderRadius: borderRadius.xl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.md,
+    position: 'relative',
+    borderWidth: 2,
+    borderColor: colors.primary,
+  },
+  logoArrow: {
+    position: 'absolute',
+    width: 48,
+    height: 6,
+    backgroundColor: colors.primary,
+    borderRadius: 3,
+    top: 28,
+    left: 16,
+    transform: [{ skewY: '15deg' }],
+  },
+  logoText: {
+    fontSize: fontSize['2xl'],
+    fontWeight: fontWeight.bold,
+    color: colors.primary,
   },
   appName: {
     fontSize: fontSize['3xl'],
